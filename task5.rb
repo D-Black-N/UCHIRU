@@ -7,7 +7,12 @@ begin
     input = gets.chomp
     puts params.fetch(input)
   rescue IndexError
-    key = false
-    puts "Выход из программы..."
+    if input === 'exit'
+      key = false
+      puts "Выход из программы..."
+    else
+      puts "Введено неверное значение"
+      retry
+    end
   end
 end while key
