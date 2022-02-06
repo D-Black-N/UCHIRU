@@ -18,7 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: school_api
-  password: FcnjyVfhnby1%
+  password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -75,7 +75,7 @@ test:
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
-#   production:
+#   production:<%= ENV['BLOG_DATABASE_PASSWORD'] %>
 #     url: <%= ENV['MY_APP_DATABASE_URL'] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: blog_production
-  username: blog
+  username: <%= ENV['BLOG_DATABASE_LOGIN'] %>
   password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
