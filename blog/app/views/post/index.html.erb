@@ -1,0 +1,33 @@
+<div class="menu">
+  <ul>
+    <%= link_to root_path do %><li class="clicked">Лента</li><% end %>
+    <% unless @current_user.nil? %>
+      <%= link_to new_post_path do %><li>Создать пост</li><% end %>
+      <%= link_to edit_user_path(@current_user) do %><li>Профиль</li><% end %>
+      <%= link_to session_path(@current_user), method: :delete do %><li>Выход</li><% end %>
+    <% else %>
+      <%= link_to session_index_path do %><li>Авторизация</li><% end %>
+      <%= link_to user_index_path do %><li>Регистрация</li><% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="content">
+  <div class="action-name">
+    <h2>Лента</h2>
+  </div>
+
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <div class="post-header">
+          <h3><%= link_to post.name, edit_post_path(post) %></h3>
+        </div>
+        <div class="post-body">
+          <%= post.text %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="menu">
+  <ul>
+    <%= link_to root_path do %><li class="clicked">Лента</li><% end %>
+    <%= link_to new_post_path do %><li>Создать пост</li><% end %>
+    <%= link_to edit_user_path(@current_user) do %><li>Профиль</li><% end %>
+    <%= link_to session_path(@current_user), method: :delete do %><li>Выход</li><% end %>
+  </ul>
+</div>
+
+<div class="content">
+  <div class="action-name">
+    <h2>Редактирование поста</h2>
+  </div>
+  <div class="form">
+    <%= form_with model: @post, url: post_path(@post), method: :patch, html: {class: "post-form"} do |f| %>
+      <div class="label">
+        <%= f.label :name, "Заголовок" %>
+      </div>
+      <div class="title">
+        <%= f.text_field :name, class: "input" %>
+      </div>
+      <div class="post-area">
+        <%= f.text_area :text, class: "post-text", placeholder: "Текст поста" %>
+      </div>
+      <div>
+        <%= f.submit "Обновить", class: "button" %>
+      </div>
+      <div>
+        <%= link_to "Удалить пост", post_path(@post), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>

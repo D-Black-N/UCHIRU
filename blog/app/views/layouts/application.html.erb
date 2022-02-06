@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="header">
+      <p>Личный блог</p>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+    <div id="bottom">
+      <p>Сайт создал: Насибуллин Данил</p> 
+      <p>Ссылка на github: <a href="http://github.com/D-Black-N">http://github.com/D-Black-N</a></p>
+    </div>
+  </body>
+</html>

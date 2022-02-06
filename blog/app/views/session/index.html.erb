@@ -1,0 +1,32 @@
+<div class="menu">
+  <ul>
+    <%= link_to root_path do %><li>Лента</li><% end %>
+    <%= link_to session_index_path do %><li class="clicked">Авторизация</li><% end %>
+    <%= link_to user_index_path do %><li>Регистрация</li><% end %>
+  </ul>
+</div>
+<div class="content">
+  <div class="action-name">
+    <h2>Авторизация</h2>
+  </div>
+
+  <div class="form">
+    <%= form_for :session, url: "/session", html: {class: "user-form"} do |f| %>
+      <div class="label">
+        <%= f.label :login, "Логин" %>
+      </div>
+      <div class="login">
+        <%= f.text_field :login, class: "input" %>
+      </div>
+      <div class="label">
+        <%= f.label :password, "Пароль" %>
+      </div>
+      <div class="password">
+        <%= f.password_field :password, class: "input" %>
+      </div>
+      <div>
+        <%= f.submit "Войти", class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
