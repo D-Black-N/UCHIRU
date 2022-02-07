@@ -1,0 +1,23 @@
+<div class="menu">
+  <ul>
+    <%= link_to root_path do %><li>Лента</li><% end %>
+    <%= link_to session_index_path do %><li>Авторизация</li><% end %>
+    <%= link_to user_index_path do %><li>Регистрация</li><% end %>
+    <%= link_to task_index_path do %><li class="clicked">Задания 6,7</li><% end %>
+  </ul>
+</div>
+
+<div class="content">
+  <div class="action-name">
+    <h2>Задания 6,7</h2>
+  </div>
+
+  <ul>
+    <li>Количество студентов: <%= @students %>, SQL: <%= @sql %></li>
+    <li>Количество студентов с именем "Иван": <%= @with_name %></li>
+    <li>Количество студентов, созданных после 01.09.2020: <%= @with_date %></li>
+    <li>Количество студентов с родителями: <%= @with_parents %></li>
+    <li>Количество студентов, у которых имя родителя "Мария": <%= @with_parents_name %></li>
+    <li>Количество студентов без родителей: <%= @without_parent %></li>
+  </ul>
+</div>
